@@ -5,17 +5,11 @@
 
 :root {
   --fuente-app: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --ij-azul-fuerte: #032A60; 
+  --ij-azul-fuerte: #00205B; /* Ajustado al azul oscuro de Ag Lucem */
+  --ij-amarillo: #FFD100;
   --bg-color: #F8FAFC;
   --text-color: #1E293B;
-  --text-muted: #64748B;
   --card-bg: #FFFFFF;
-
-  --grad-azul: linear-gradient(135deg, #00A8FF, #032A60);
-  --grad-magenta: linear-gradient(135deg, #FF4D79, #D31A52);
-  --grad-amarillo: linear-gradient(135deg, #FFE047, #FFD100);
-  --grad-verde: linear-gradient(135deg, #00C65A, #009944);
-
   --sombra-suave: 0 4px 10px rgba(0, 0, 0, 0.1);
   --radio-borde: 16px;
 }
@@ -23,7 +17,6 @@
 [data-theme="dark"] {
   --bg-color: #0F172A;
   --text-color: #F8FAFC;
-  --text-muted: #94A3B8;
   --card-bg: #1E293B;
   --ij-azul-fuerte: #0B1C3D; 
   --sombra-suave: 0 4px 10px rgba(0, 0, 0, 0.4);
@@ -41,67 +34,66 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  padding-bottom: 40px; /* Reducido al eliminar la barra inferior */
+  padding-bottom: 40px;
 }
 
-header {
+/* Header con la línea amarilla base */
+.main-header {
   background-color: var(--ij-azul-fuerte);
-  color: #FFFFFF;
-  padding: 0; 
-  text-align: center;
+  border-bottom: 4px solid var(--ij-amarillo);
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: var(--sombra-suave);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Cuadrícula de Botones */
-.button-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  padding: 20px;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-@media (min-width: 768px) {
-  .button-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  }
-}
-
-.app-btn {
+/* ==========================================================================
+   Navegación Horizontal (Estilo Ag Lucem)
+   ========================================================================== */
+.pill-nav {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 90px; /* Reducido porque ya no hay iconos */
-  border-radius: var(--radio-borde);
-  border: none;
-  box-shadow: var(--sombra-suave);
-  color: #FFFFFF;
-  font-weight: 600;
-  font-family: var(--fuente-app);
-  text-decoration: none;
-  cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  padding: 15px;
-  text-align: center;
+  overflow-x: auto;
+  gap: 12px;
+  padding: 15px 20px;
+  background-color: var(--card-bg);
+  /* Ocultar barra de scroll para estética limpia */
+  -ms-overflow-style: none;  
+  scrollbar-width: none;  
 }
 
-.app-btn:active { transform: scale(0.95); }
+.pill-nav::-webkit-scrollbar {
+  display: none; 
+}
 
-.btn-azul { background: var(--grad-azul); }
-.btn-magenta { background: var(--grad-magenta); }
-.btn-amarillo { background: var(--grad-amarillo); color: #1E293B; }
-.btn-verde { background: var(--grad-verde); }
+.pill-btn {
+  white-space: nowrap; /* Evita que el texto salte de línea */
+  padding: 10px 22px;
+  border-radius: 30px; /* Borde muy redondeado */
+  border: 1px solid #CBD5E1;
+  background-color: transparent;
+  color: #475569;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.pill-btn.active {
+  background-color: var(--ij-azul-fuerte);
+  color: #FFFFFF;
+  border-color: var(--ij-azul-fuerte);
+  box-shadow: 0 4px 8px rgba(0, 32, 91, 0.3);
+}
+
+.pill-btn:not(.active):hover {
+  background-color: #F1F5F9;
+}
 
 /* Banners y UI */
 .banner-container {
   background-color: var(--card-bg);
   border-radius: var(--radio-borde);
-  margin: 0 20px 20px 20px;
+  margin: 20px;
   padding: 24px 20px;
   box-shadow: var(--sombra-suave);
   text-align: center;
