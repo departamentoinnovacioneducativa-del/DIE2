@@ -3,23 +3,37 @@
    Archivo: app.js
    ========================================================================== */
 
-// 1. Registro del Service Worker
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-        navigator.serviceWorker.register('./sw.js')
+        navigator.serviceWorker.register('sw.js')
             .then(reg => console.log('DIE PWA: Service Worker registrado.', reg))
             .catch(err => console.error('DIE PWA: Error al registrar el SW.', err));
     });
 }
 
-// 2. Lógica de Banners (Inicio)
 const iniciarBanners = () => {
-    // A. Rotación de Frases sobre Innovación
+    // 20 Frases REALES sobre innovación, educación y creatividad
     const frases = [
-        { texto: "Construirse a uno mismo es construir el mundo.", autor: "Modelo Construye" },
-        { texto: "La innovación no es tecnología, es una nueva forma de pensar.", autor: "Departamento de Innovación Educativa" },
-        { texto: "Aprender para transformar, transformar para educar.", autor: "Ag Lucem" },
-        { texto: "El caos es simplemente el orden que aún no entendemos.", autor: "Mago del Caos" }
+        { texto: "La educación es el arma más poderosa que puedes usar para cambiar el mundo.", autor: "Nelson Mandela" },
+        { texto: "La imaginación es más importante que el conocimiento. El conocimiento es limitado, mientras que la imaginación no.", autor: "Albert Einstein" },
+        { texto: "El principal objetivo de la educación es crear personas capaces de hacer cosas nuevas, y no simplemente repetir lo que otras generaciones hicieron.", autor: "Jean Piaget" },
+        { texto: "La educación es el encendido de una llama, no el llenado de un recipiente.", autor: "Sócrates" },
+        { texto: "La innovación distingue a los líderes de los seguidores.", autor: "Steve Jobs" },
+        { texto: "La educación no cambia al mundo, cambia a las personas que van a cambiar el mundo.", autor: "Paulo Freire" },
+        { texto: "Dime y lo olvido, enséñame y lo recuerdo, involúcrame y lo aprendo.", autor: "Benjamin Franklin" },
+        { texto: "La creatividad es tan importante en la educación como la alfabetización, y deberíamos tratarla con la misma jerarquía.", autor: "Ken Robinson" },
+        { texto: "Nunca andes por el camino trazado, pues él te conduce únicamente hacia donde los otros fueron.", autor: "Alexander Graham Bell" },
+        { texto: "Lo que un niño puede hacer hoy con ayuda, será capaz de hacerlo por sí mismo mañana.", autor: "Lev Vygotsky" },
+        { texto: "Nada en la vida es para ser temido, es sólo para ser comprendido. Ahora es el momento de comprender más, para que podamos temer menos.", autor: "Marie Curie" },
+        { texto: "La educación no es preparación para la vida; la educación es la vida misma.", autor: "John Dewey" },
+        { texto: "La primera tarea de la educación es agitar la vida, pero dejándola libre para que se desarrolle.", autor: "Maria Montessori" },
+        { texto: "Creatividad es pensar en nuevas ideas. Innovación es hacer cosas nuevas.", autor: "Theodore Levitt" },
+        { texto: "En algún lugar, algo increíble está esperando a ser descubierto.", autor: "Carl Sagan" },
+        { texto: "Los analfabetos del siglo XXI no serán aquellos que no sepan leer y escribir, sino aquellos que no puedan aprender, desaprender y reaprender.", autor: "Alvin Toffler" },
+        { texto: "El valor de una idea radica en el uso de la misma.", autor: "Thomas Edison" },
+        { texto: "No es posible resolver los problemas de hoy con las soluciones de ayer.", autor: "Roger Von Oech" },
+        { texto: "Lo que conduce y arrastra al mundo no son las máquinas, sino las ideas.", autor: "Victor Hugo" },
+        { texto: "Aprender sin reflexionar es malgastar la energía.", autor: "Confucio" }
     ];
 
     let indiceFrase = 0;
@@ -27,9 +41,9 @@ const iniciarBanners = () => {
     const txtAutor = document.getElementById('banner-frase-autor');
 
     if (txtFrase && txtAutor) {
+        // Ejecuta el cambio cada 1 MINUTO (60,000 ms)
         setInterval(() => {
             indiceFrase = (indiceFrase + 1) % frases.length;
-            // Efecto de desvanecimiento suave (requiere CSS transition en opacity)
             txtFrase.style.opacity = 0;
             txtAutor.style.opacity = 0;
             
@@ -39,114 +53,24 @@ const iniciarBanners = () => {
                 txtFrase.style.opacity = 1;
                 txtAutor.style.opacity = 1;
             }, 500);
-        }, 8000); // Cambia cada 8 segundos
+        }, 60000); 
     }
 
-    // B. Rotación del Banner de Noticias (1.png a 10.png)
+    // Rotación de Imágenes de Noticias (En la raíz: 1.png, 2.png, hasta 10.png)
     let indiceImagen = 1;
     const imgNoticias = document.getElementById('banner-noticias-img');
 
     if (imgNoticias) {
+        // Cambia cada 5 segundos
         setInterval(() => {
             indiceImagen++;
             if (indiceImagen > 10) indiceImagen = 1;
-            imgNoticias.src = `assets/banners/${indiceImagen}.png`;
-        }, 5000); // Cambia cada 5 segundos
+            // Llama a la imagen directamente en la raíz
+            imgNoticias.src = `${indiceImagen}.png`;
+        }, 5000); 
     }
 };
 
-// 3. Lógica de Ajustes y Personalización
-const rootCSS = document.documentElement;
-
-// Cambiar color principal
-const cambiarColorPrincipal = (nuevoColor) => {
-    rootCSS.style.setProperty('--ij-azul-fuerte', nuevoColor);
-    localStorage.setItem('die_color', nuevoColor);
-};
-
-// Cambiar Tipografía
-const cambiarFuente = (nuevaFuente) => {
-    rootCSS.style.setProperty('--fuente-app', nuevaFuente);
-    localStorage.setItem('die_fuente', nuevaFuente);
-};
-
-// Activar/Desactivar Modo Oscuro
-const toggleModoOscuro = (activar) => {
-    if (activar) {
-        rootCSS.setAttribute('data-theme', 'dark');
-        localStorage.setItem('die_tema', 'dark');
-    } else {
-        rootCSS.removeAttribute('data-theme');
-        localStorage.setItem('die_tema', 'light');
-    }
-};
-
-// Cargar preferencias guardadas al iniciar
-const cargarPreferencias = () => {
-    const colorGuardado = localStorage.getItem('die_color');
-    const fuenteGuardada = localStorage.getItem('die_fuente');
-    const temaGuardado = localStorage.getItem('die_tema');
-
-    if (colorGuardado) cambiarColorPrincipal(colorGuardado);
-    if (fuenteGuardada) cambiarFuente(fuenteGuardada);
-    if (temaGuardado === 'dark') toggleModoOscuro(true);
-};
-
-// 4. FUNCIONALIDAD CRÍTICA: Forzar Actualización del Sistema
-async function forzarActualizacionSistema() {
-    const btn = document.getElementById('btn-forzar-actualizacion');
-    const barraContenedor = document.getElementById('progress-container');
-    const barraRelleno = document.getElementById('progress-fill');
-
-    if (!btn || !barraContenedor || !barraRelleno) return;
-
-    // Deshabilitar botón para evitar múltiples clics
-    btn.disabled = true;
-    btn.innerHTML = "🧹 Limpiando sistema...";
-
-    // Mostrar e iniciar la animación de la barra de progreso (10s en CSS)
-    barraContenedor.style.display = 'block';
-    
-    // Pequeño timeout para que el navegador procese el display:block antes de animar
-    setTimeout(() => {
-        barraRelleno.style.width = '100%';
-    }, 50);
-
-    try {
-        // A. Borrar la memoria caché del navegador (PWA)
-        const cacheNames = await caches.keys();
-        for (let name of cacheNames) {
-            await caches.delete(name);
-            console.log(`DIE PWA: Caché eliminada -> ${name}`);
-        }
-
-        // B. Desinstalar el Service Worker actual
-        if ('serviceWorker' in navigator) {
-            const registrations = await navigator.serviceWorker.getRegistrations();
-            for (let registration of registrations) {
-                await registration.unregister();
-                console.log('DIE PWA: Service Worker desinstalado.');
-            }
-        }
-    } catch (error) {
-        console.error("DIE PWA: Error durante la limpieza del sistema", error);
-    }
-
-    // C. Forzar la recarga después de los 10 segundos visuales
-    setTimeout(() => {
-        // window.location.reload(true) recarga ignorando la caché del navegador
-        window.location.reload(true); 
-    }, 10000);
-}
-
-// Inicialización cuando el DOM está listo
 document.addEventListener('DOMContentLoaded', () => {
-    cargarPreferencias();
     iniciarBanners();
-
-    // Listener para el botón de actualización en la sección Ajustes
-    const btnActualizar = document.getElementById('btn-forzar-actualizacion');
-    if (btnActualizar) {
-        btnActualizar.addEventListener('click', forzarActualizacionSistema);
-    }
 });
