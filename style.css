@@ -1,12 +1,11 @@
 /* ==========================================================================
    PWA: Departamento de Innovación Educativa (DIE)
-   Hoja de Estilos Principal (Mobile First)
    ========================================================================== */
-
 :root {
   --fuente-app: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --ij-azul-fuerte: #00205B; /* Ajustado al azul oscuro de Ag Lucem */
+  --ij-azul-fuerte: #00205B;
   --ij-amarillo: #FFD100;
+  --verde-vida: #4CAF50; /* Color Verde Vida solicitado */
   --bg-color: #F8FAFC;
   --text-color: #1E293B;
   --card-bg: #FFFFFF;
@@ -18,103 +17,90 @@
   --bg-color: #0F172A;
   --text-color: #F8FAFC;
   --card-bg: #1E293B;
-  --ij-azul-fuerte: #0B1C3D; 
+  --verde-vida: #2E7D32; /* Verde vida más oscuro para noche */
   --sombra-suave: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
-}
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 
 body {
   font-family: var(--fuente-app);
   background-color: var(--bg-color);
   color: var(--text-color);
-  transition: background-color 0.3s ease, color 0.3s ease;
   padding-bottom: 40px;
 }
 
-/* Header con la línea amarilla base */
+/* ==========================================================================
+   HEADER (VERDE VIDA + IMAGEN CENTRADA)
+   ========================================================================== */
 .main-header {
-  background-color: var(--ij-azul-fuerte);
+  background-color: var(--verde-vida); /* El "resto" de la cabecera será verde vida */
   border-bottom: 4px solid var(--ij-amarillo);
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center; /* Centra el contenido internamente */
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 600px; /* Evita que sea gigantesca en PC */
+  max-height: 160px;
+  object-fit: contain;
+  margin: 0 auto; /* Centrado perfecto */
+  display: block;
 }
 
 /* ==========================================================================
-   Navegación Horizontal (Estilo Ag Lucem)
+   MENÚ PÍLDORA (ESTILO AG LUCEM)
    ========================================================================== */
 .pill-nav {
   display: flex;
-  overflow-x: auto;
+  overflow-x: auto; /* Scroll horizontal nativo para celulares */
   gap: 12px;
   padding: 15px 20px;
   background-color: var(--card-bg);
-  /* Ocultar barra de scroll para estética limpia */
   -ms-overflow-style: none;  
   scrollbar-width: none;  
 }
 
-.pill-nav::-webkit-scrollbar {
-  display: none; 
-}
+.pill-nav::-webkit-scrollbar { display: none; }
 
 .pill-btn {
-  white-space: nowrap; /* Evita que el texto salte de línea */
+  white-space: nowrap;
   padding: 10px 22px;
-  border-radius: 30px; /* Borde muy redondeado */
+  border-radius: 30px;
   border: 1px solid #CBD5E1;
-  background-color: transparent;
   color: #475569;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 600;
+  background-color: transparent;
   transition: all 0.2s ease;
 }
 
-.pill-btn.active {
+.pill-btn:hover, .pill-btn:active {
   background-color: var(--ij-azul-fuerte);
   color: #FFFFFF;
   border-color: var(--ij-azul-fuerte);
   box-shadow: 0 4px 8px rgba(0, 32, 91, 0.3);
 }
 
-.pill-btn:not(.active):hover {
-  background-color: #F1F5F9;
-}
-
-/* Banners y UI */
+/* ==========================================================================
+   BANNERS Y CONTENIDO PRINCIPAL
+   ========================================================================== */
 .banner-container {
   background-color: var(--card-bg);
   border-radius: var(--radio-borde);
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   padding: 24px 20px;
   box-shadow: var(--sombra-suave);
   text-align: center;
 }
 
-.frase-banner {
-  font-style: italic;
-  font-size: 1.15rem;
-  margin-bottom: 12px;
-  line-height: 1.5;
-}
-
-.autor-banner {
-  font-weight: 700;
-  color: var(--ij-azul-fuerte);
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-[data-theme="dark"] .autor-banner { color: #00A8FF; }
+.frase-banner { font-style: italic; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.5; transition: opacity 0.5s ease; }
+.autor-banner { font-weight: 700; color: var(--verde-vida); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.5s ease; }
 
 .news-banner {
   width: calc(100% - 40px);
@@ -123,46 +109,49 @@ body {
   margin: 20px auto;
   overflow: hidden;
   box-shadow: var(--sombra-suave);
-  position: relative;
   background-color: var(--card-bg); 
 }
 
-.news-banner img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  transition: opacity 0.5s ease-in-out;
-}
+.news-banner img { width: 100%; height: 100%; object-fit: cover; }
 
 .ag-lucem-link {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  margin: 40px auto;
-  padding: 14px 28px;
-  background-color: transparent;
-  color: var(--ij-azul-fuerte);
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 30px;
-  border: 2px solid var(--ij-azul-fuerte);
-  width: max-content;
-  transition: all 0.3s ease;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin: 40px auto; padding: 14px 28px; border-radius: 30px;
+  color: var(--ij-azul-fuerte); border: 2px solid var(--ij-azul-fuerte);
+  text-decoration: none; font-weight: 700; width: max-content; transition: 0.3s;
 }
 
-.ag-lucem-link:hover, .ag-lucem-link:active {
+.ag-lucem-link:hover {
   background-color: var(--ij-azul-fuerte);
-  color: #FFFFFF;
+  color: white;
 }
 
-[data-theme="dark"] .ag-lucem-link {
-  color: #00A8FF;
-  border-color: #00A8FF;
-}
+/* ==========================================================================
+   ADAPTACIÓN A PC (PANTALLAS GRANDES)
+   ========================================================================== */
+@media (min-width: 768px) {
+  /* Contenedor principal centrado y sin estirarse al infinito */
+  main {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
 
-[data-theme="dark"] .ag-lucem-link:hover, 
-[data-theme="dark"] .ag-lucem-link:active {
-  background-color: #00A8FF;
-  color: #0F172A;
+  /* El menú de píldoras se centra y se envuelve en varias líneas si es necesario */
+  .pill-nav {
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow-x: visible;
+    padding: 20px;
+  }
+
+  /* La imagen del banner permite un poco más de altura en PC */
+  .banner-img {
+    max-height: 250px;
+  }
+
+  /* Banner de noticias más grande para verse bien en monitor */
+  .news-banner {
+    height: 400px;
+    max-width: 960px;
+  }
 }
