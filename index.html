@@ -20,57 +20,40 @@
 </head>
 <body>
 
-    <!-- Header / Banner Superior -->
-    <header>
-        <!-- Forzamos la ruta estricta ./ para evitar errores en GitHub Pages -->
-        <img src="./DIE.PNG" alt="Departamento de Innovación Educativa" style="width: 100%; height: auto; min-height: 60px; max-height: 120px; object-fit: cover; object-position: center; display: block;">
+    <!-- Header / Banner Superior (Con la franja amarilla inferior idéntica a Ag Lucem) -->
+    <header class="main-header">
+        <!-- Imagen en la raíz -->
+        <img src="DIE.PNG" alt="Departamento de Innovación Educativa" style="width: 100%; height: auto; min-height: 60px; max-height: 140px; object-fit: cover; object-position: center; display: block;">
     </header>
 
+    <!-- Navegación Horizontal Deslizable (Estilo Píldora) -->
+    <nav class="pill-nav">
+        <!-- El botón activo lleva el color oscuro -->
+        <a href="index.html" class="pill-btn active">Inicio</a>
+        <a href="modelo.html" class="pill-btn">Modelo CONSTRUYE</a>
+        <a href="blog.html" class="pill-btn">Blog Comunitario</a>
+        <a href="revista.html" class="pill-btn">Revista Digital</a>
+        <a href="kiosko.html" class="pill-btn">Kiosko de Proyectos</a>
+        <a href="capacitacion.html" class="pill-btn">Capacitación</a>
+        <a href="juventudtv.html" class="pill-btn">Juventud TV</a>
+        <a href="convocatorias.html" class="pill-btn">Convocatorias</a>
+    </nav>
+
     <main>
-        <!-- Cuadrícula de Accesos Principales (Sin imágenes, debajo del banner) -->
-        <nav class="button-grid">
-            <a href="modelo.html" class="app-btn btn-azul">
-                Modelo CONSTRUYE
-            </a>
-
-            <a href="blog.html" class="app-btn btn-verde">
-                Blog Comunitario
-            </a>
-
-            <a href="revista.html" class="app-btn btn-amarillo">
-                Revista Digital<br><small>(Próximamente)</small>
-            </a>
-
-            <a href="kiosko.html" class="app-btn btn-magenta">
-                Kiosko de Proyectos
-            </a>
-
-            <a href="capacitacion.html" class="app-btn btn-azul">
-                Capacitación
-            </a>
-
-            <a href="juventudtv.html" class="app-btn btn-verde">
-                Juventud TV
-            </a>
-
-            <a href="convocatorias.html" class="app-btn btn-magenta">
-                Convocatorias
-            </a>
-        </nav>
-
-        <!-- Banner de Frases (Mínimo 10 frases, cambia cada minuto) -->
+        <!-- Banner de Frases (10 Frases Reales, cambia cada minuto) -->
         <section class="banner-container">
             <p id="banner-frase-texto" class="frase-banner" style="transition: opacity 0.5s ease;">
-                "Construirse a uno mismo es construir el mundo."
+                "La imaginación es más importante que el conocimiento. El conocimiento es limitado, mientras que la imaginación no."
             </p>
             <p id="banner-frase-autor" class="autor-banner" style="transition: opacity 0.5s ease;">
-                Modelo Construye
+                Albert Einstein
             </p>
         </section>
 
         <!-- Banner de Noticias Rotativas -->
         <section class="news-banner">
-            <img id="banner-noticias-img" src="./assets/banners/1.png" alt="Noticias de Innovación">
+            <!-- Imagen en la raíz -->
+            <img id="banner-noticias-img" src="1.png" alt="Noticias de Innovación">
         </section>
 
         <!-- Enlace Transversal Gemelo -->
