@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Revista Digital - DIE</title>
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta name="theme-color" content="#4CAF50">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- COMPONENTE GLOBAL: HEADER -->
+    <header class="main-header">
+        <a href="index.html">
+            <img src="DIE.PNG" alt="Departamento de Innovación Educativa" class="banner-img">
+        </a>
+    </header>
+
+    <!-- COMPONENTE GLOBAL: MENÚ PÍLDORA -->
+    <nav class="pill-nav" id="menu-principal">
+        <a href="index.html" class="pill-btn">Inicio</a>
+        <a href="modelo.html" class="pill-btn">Modelo CONSTRUYE</a>
+        <a href="blog.html" class="pill-btn">Blog Comunitario</a>
+        <a href="revista.html" class="pill-btn">Revista Digital</a>
+        <a href="kiosko.html" class="pill-btn">Kiosko de Proyectos</a>
+        <a href="capacitacion.html" class="pill-btn">Capacitación</a>
+        <a href="juventudtv.html" class="pill-btn">Juventud TV</a>
+        <a href="convocatorias.html" class="pill-btn">Convocatorias</a>
+    </nav>
+
+    <main>
+        <!-- CABECERA REVISTA -->
+        <section class="construye-intro">
+            <span style="color: var(--verde-vida); font-weight: bold; font-size: 0.8rem; text-transform: uppercase;">Divulgación Científica</span>
+            <h1 class="titulo-modelo" style="margin-top: 10px;">Revista Digital</h1>
+            <p class="descripcion-modelo">Un espacio dedicado a la investigación, la innovación pedagógica y el conocimiento compartido.</p>
+        </section>
+
+        <!-- PORTADA Y SHOWCASE -->
+        <section class="fases-grid" style="margin-top: 0;">
+            <article class="fase-card" style="flex-direction: column; align-items: center; text-align: center;">
+                <div class="magazine-frame">
+                    <img src="portada-1.png" alt="Portada Revista CIIJ" class="magazine-img">
+                </div>
+                <div class="fase-info">
+                    <span class="date-tag" style="color: var(--verde-vida); font-weight: bold; font-size: 0.7rem;">EDICIÓN NO. 1</span>
+                    <h3>Próximamente disponible</h3>
+                    <p>Estamos curando los mejores artículos de investigación y entrevistas exclusivas para nuestro gran lanzamiento.</p>
+                </div>
+            </article>
+        </section>
+
+        <!-- CARACTERÍSTICAS -->
+        <section class="fases-grid">
+            <div class="fase-card">
+                <div class="letra let-azul">01</div>
+                <div class="fase-info"><h3>Investigación</h3><p>Artículos arbitrados sobre el uso de IA en entornos de aprendizaje.</p></div>
+            </div>
+            <div class="fase-card">
+                <div class="letra let-magenta">02</div>
+                <div class="fase-info"><h3>Entrevistas</h3><p>Charlas con expertos en tecnología y transformación educativa.</p></div>
+            </div>
+        </section>
+
+        <!-- ENLACE FINAL -->
+        <a href="https://mago-del-caos.github.io/Agenda/novedades.html" class="ag-lucem-link">
+            <span>Ingresar a Ag Lucem</span>
+        </a>
+    </main>
+
+    <!-- ESTILOS LOCALES PARA LA REVISTA -->
+    <style>
+        .magazine-frame { width: 100%; max-width: 300px; height: 400px; margin: 0 auto 20px; overflow: hidden; border-radius: 12px; box-shadow: var(--sombra-suave); }
+        .magazine-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+        .portada-wrapper:hover .magazine-img { transform: scale(1.05); }
+        .date-tag { letter-spacing: 2px; text-transform: uppercase; display: block; margin-bottom: 8px; }
+    </style>
+
+    <script src="app.js"></script>
+</body>
+</html>
