@@ -57,7 +57,7 @@ body {
 header {
   background-color: var(--ij-azul-fuerte);
   color: #FFFFFF;
-  padding: 20px;
+  padding: 0; /* Ajustado a 0 para que la imagen ocupe todo el ancho */
   text-align: center;
   position: sticky;
   top: 0;
