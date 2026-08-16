@@ -4,29 +4,22 @@
    ========================================================================== */
 
 :root {
-  /* Tipografía Dinámica */
   --fuente-app: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-
-  /* Colores Base y Header */
-  --ij-azul-fuerte: #032A60; /* Dinámico: Se puede sobreescribir vía JS en Ajustes */
+  --ij-azul-fuerte: #032A60; 
   --bg-color: #F8FAFC;
   --text-color: #1E293B;
   --text-muted: #64748B;
   --card-bg: #FFFFFF;
 
-  /* Gradientes Obligatorios para Botones */
   --grad-azul: linear-gradient(135deg, #00A8FF, #032A60);
   --grad-magenta: linear-gradient(135deg, #FF4D79, #D31A52);
   --grad-amarillo: linear-gradient(135deg, #FFE047, #FFD100);
   --grad-verde: linear-gradient(135deg, #00C65A, #009944);
 
-  /* Sombras y Geometría */
   --sombra-suave: 0 4px 10px rgba(0, 0, 0, 0.1);
   --radio-borde: 16px;
-  --nav-height: 70px;
 }
 
-/* Modo Oscuro - Activado mediante [data-theme="dark"] en el <html> o <body> */
 [data-theme="dark"] {
   --bg-color: #0F172A;
   --text-color: #F8FAFC;
@@ -36,14 +29,11 @@
   --sombra-suave: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
-/* ==========================================================================
-   1. Reset y Estilos Globales
-   ========================================================================== */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  -webkit-tap-highlight-color: transparent; /* Evita destellos azules en móviles */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -51,27 +41,24 @@ body {
   background-color: var(--bg-color);
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
-  padding-bottom: calc(var(--nav-height) + 20px); /* Espacio para la nav inferior */
+  padding-bottom: 40px; /* Reducido al eliminar la barra inferior */
 }
 
 header {
   background-color: var(--ij-azul-fuerte);
   color: #FFFFFF;
-  padding: 0; /* Ajustado a 0 para que la imagen ocupe todo el ancho */
+  padding: 0; 
   text-align: center;
   position: sticky;
   top: 0;
   z-index: 100;
   box-shadow: var(--sombra-suave);
-  transition: background-color 0.3s ease;
 }
 
-/* ==========================================================================
-   2. Arquitectura de Cuadrícula y Botones (.button-grid / .app-btn)
-   ========================================================================== */
+/* Cuadrícula de Botones */
 .button-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas en móvil */
+  grid-template-columns: repeat(2, 1fr);
   gap: 16px;
   padding: 20px;
   max-width: 800px;
@@ -89,7 +76,7 @@ header {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 160px;
+  min-height: 90px; /* Reducido porque ya no hay iconos */
   border-radius: var(--radio-borde);
   border: none;
   box-shadow: var(--sombra-suave);
@@ -103,100 +90,26 @@ header {
   text-align: center;
 }
 
-.app-btn:active {
-  transform: scale(0.95); /* Efecto de pulsación nativa */
-}
+.app-btn:active { transform: scale(0.95); }
 
-/* Variantes de Color */
 .btn-azul { background: var(--grad-azul); }
 .btn-magenta { background: var(--grad-magenta); }
-.btn-amarillo {
-  background: var(--grad-amarillo);
-  color: #1E293B; /* Regla estricta: texto oscuro sobre amarillo */
-}
+.btn-amarillo { background: var(--grad-amarillo); color: #1E293B; }
 .btn-verde { background: var(--grad-verde); }
 
-/* ==========================================================================
-   3. Iconos Homologados (.icon-wrapper)
-   ========================================================================== */
-.icon-wrapper {
-  width: 90px;
-  height: 90px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 12px;
-}
-
-.icon-wrapper img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; /* Garantiza que ninguna imagen se deforme */
-  filter: drop-shadow(0px 2px 4px rgba(0,0,0,0.2)); /* Opcional para dar relieve */
-}
-
-/* ==========================================================================
-   4. Barra de Navegación Inferior (.app-nav)
-   ========================================================================== */
-.app-nav {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: var(--nav-height);
-  background-color: var(--card-bg);
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-  z-index: 1000;
-  padding-bottom: env(safe-area-inset-bottom); /* Soporte para notch en iOS */
-  transition: background-color 0.3s ease;
-}
-
-.nav-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: var(--text-muted);
-  text-decoration: none;
-  font-size: 0.75rem;
-  flex: 1;
-  height: 100%;
-  transition: color 0.3s ease;
-  gap: 4px;
-}
-
-.nav-item svg, .nav-item i {
-  font-size: 1.5rem;
-}
-
-.nav-item.active {
-  color: var(--ij-azul-fuerte);
-  font-weight: 700;
-}
-
-[data-theme="dark"] .nav-item.active {
-  color: #00A8FF; /* Contraste mejorado para el azul en modo oscuro */
-}
-
-/* ==========================================================================
-   5. Banners (Inicio) y UI de Secciones
-   ========================================================================== */
+/* Banners y UI */
 .banner-container {
   background-color: var(--card-bg);
   border-radius: var(--radio-borde);
-  margin: 20px;
+  margin: 0 20px 20px 20px;
   padding: 24px 20px;
   box-shadow: var(--sombra-suave);
   text-align: center;
-  transition: background-color 0.3s ease;
 }
 
 .frase-banner {
   font-style: italic;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   margin-bottom: 12px;
   line-height: 1.5;
 }
@@ -209,9 +122,7 @@ header {
   letter-spacing: 1px;
 }
 
-[data-theme="dark"] .autor-banner {
-  color: #00A8FF;
-}
+[data-theme="dark"] .autor-banner { color: #00A8FF; }
 
 .news-banner {
   width: calc(100% - 40px);
@@ -221,7 +132,7 @@ header {
   overflow: hidden;
   box-shadow: var(--sombra-suave);
   position: relative;
-  background-color: var(--card-bg); /* Placeholder mientas carga la imagen */
+  background-color: var(--card-bg); 
 }
 
 .news-banner img {
@@ -231,51 +142,12 @@ header {
   transition: opacity 0.5s ease-in-out;
 }
 
-/* Sección Ajustes - Botón Crítico */
-.btn-critico {
-  background-color: #EF4444; /* Rojo alerta */
-  color: white;
-  padding: 16px 20px;
-  border: none;
-  border-radius: var(--radio-borde);
-  font-weight: bold;
-  font-size: 1rem;
-  width: 100%;
-  cursor: pointer;
-  box-shadow: var(--sombra-suave);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  margin-top: 20px;
-}
-
-.progress-bar-container {
-  width: 100%;
-  height: 8px;
-  background-color: var(--bg-color);
-  border-radius: 4px;
-  overflow: hidden;
-  margin-top: 10px;
-  display: none; /* Se activa por JS */
-}
-
-.progress-bar-fill {
-  height: 100%;
-  background-color: var(--ij-azul-fuerte);
-  width: 0%;
-  transition: width 10s linear; /* 10 segundos visuales */
-}
-
-/* ==========================================================================
-   6. Enlace Transversal a Ag Lucem
-   ========================================================================== */
 .ag-lucem-link {
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin: 40px auto 20px auto;
+  margin: 40px auto;
   padding: 14px 28px;
   background-color: transparent;
   color: var(--ij-azul-fuerte);
