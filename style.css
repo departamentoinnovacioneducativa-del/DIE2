@@ -104,28 +104,28 @@ body {
 .autor-banner { font-weight: 700; color: var(--verde-vida); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.5s ease; }
 
 /* ==========================================================================
-   GALERÍA DE NOVEDADES (3 EN 3)
+   GALERÍA DE NOVEDADES (3 EN LÍNEA, PEQUEÑAS)
    ========================================================================== */
 .news-gallery {
   display: flex;
-  gap: 15px;
-  margin: 0 20px;
-  overflow-x: auto; /* Permite deslizar en celulares muy pequeños */
-  -ms-overflow-style: none;  
-  scrollbar-width: none;
+  justify-content: center; /* Centradas horizontalmente */
+  align-items: center;
+  gap: 10px; /* Separación pequeña entre imágenes */
+  margin: 30px auto;
+  padding: 0 15px;
+  max-width: 100%;
 }
 
-.news-gallery::-webkit-scrollbar { display: none; }
-
 .news-gallery img {
-  flex: 1 1 calc(33.333% - 10px);
-  min-width: 110px; /* Evita que se aplasten demasiado en móviles */
-  width: 100%;
+  flex: 0 1 30%; /* Cada imagen ocupa hasta el 30% del espacio disponible */
+  max-width: 110px; /* TAMAÑO TOPE EN CELULAR: Se ven pequeñas */
   height: auto;
-  object-fit: contain;
-  border-radius: var(--radio-borde);
-  box-shadow: var(--sombra-suave);
+  object-fit: contain; /* Garantiza que jamás se recorten */
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
   background-color: var(--card-bg);
+  padding: 4px; /* Crea un marco blanco tipo fotografía */
+  border: 1px solid #E2E8F0;
 }
 
 /* Enlaces */
@@ -161,9 +161,11 @@ body {
     max-height: 250px;
   }
 
-  /* En PC, se ven las 3 imágenes perfectas y centradas sin scroll */
   .news-gallery {
-    justify-content: center;
-    overflow-x: visible;
+    gap: 20px; /* Más espacio entre ellas en PC */
+  }
+
+  .news-gallery img {
+    max-width: 180px; /* TAMAÑO TOPE EN PC: Mantienen un tamaño de miniatura elegante */
   }
 }
