@@ -20,10 +20,9 @@
 </head>
 <body>
 
-    <!-- Header / Banner Superior -->
+    <!-- Header / Banner Superior (Ajustado a full-width) -->
     <header>
-        <!-- Asegúrate de tener la imagen DIE.PNG en la carpeta assets/ -->
-        <img src="assets/DIE.PNG" alt="Departamento de Innovación Educativa" style="max-width: 100%; height: auto; max-height: 80px; object-fit: contain;">
+        <img src="DIE.PNG" alt="Departamento de Innovación Educativa" style="width: 100%; height: auto; min-height: 60px; max-height: 120px; object-fit: cover; object-position: center; display: block;">
     </header>
 
     <main>
@@ -39,7 +38,7 @@
 
         <!-- Banner de Noticias Rotativas -->
         <section class="news-banner">
-            <!-- La imagen inicial es 1.png, el JS rotará hasta la 10.png -->
+            <!-- Recuerda colocar las imágenes 1.png a 10.png en la carpeta assets/banners/ -->
             <img id="banner-noticias-img" src="assets/banners/1.png" alt="Noticias de Innovación">
         </section>
 
@@ -95,7 +94,7 @@
             </a>
         </nav>
 
-        <!-- Enlace Transversal a Ag Lucem -->
+        <!-- Enlace Transversal Gemelo -->
         <a href="https://mago-del-caos.github.io/Agenda/novedades.html" class="ag-lucem-link">
             <span>Ingresar a Ag Lucem</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -105,7 +104,6 @@
     <!-- Barra de Navegación Inferior (Fija) -->
     <nav class="app-nav">
         <a href="index.html" class="nav-item active">
-            <!-- Icono Home (SVG en línea para rendimiento) -->
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
             Inicio
         </a>
