@@ -10,7 +10,7 @@
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <!-- PWA Configuración (Pendiente manifest.json) -->
+    <!-- PWA Configuración -->
     <meta name="theme-color" content="#032A60">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -20,13 +20,45 @@
 </head>
 <body>
 
-    <!-- Header / Banner Superior (Ajustado a full-width) -->
+    <!-- Header / Banner Superior -->
     <header>
-        <img src="DIE.PNG" alt="Departamento de Innovación Educativa" style="width: 100%; height: auto; min-height: 60px; max-height: 120px; object-fit: cover; object-position: center; display: block;">
+        <!-- Forzamos la ruta estricta ./ para evitar errores en GitHub Pages -->
+        <img src="./DIE.PNG" alt="Departamento de Innovación Educativa" style="width: 100%; height: auto; min-height: 60px; max-height: 120px; object-fit: cover; object-position: center; display: block;">
     </header>
 
     <main>
-        <!-- Banner de Frases (Modelo Construye / Innovación) -->
+        <!-- Cuadrícula de Accesos Principales (Sin imágenes, debajo del banner) -->
+        <nav class="button-grid">
+            <a href="modelo.html" class="app-btn btn-azul">
+                Modelo CONSTRUYE
+            </a>
+
+            <a href="blog.html" class="app-btn btn-verde">
+                Blog Comunitario
+            </a>
+
+            <a href="revista.html" class="app-btn btn-amarillo">
+                Revista Digital<br><small>(Próximamente)</small>
+            </a>
+
+            <a href="kiosko.html" class="app-btn btn-magenta">
+                Kiosko de Proyectos
+            </a>
+
+            <a href="capacitacion.html" class="app-btn btn-azul">
+                Capacitación
+            </a>
+
+            <a href="juventudtv.html" class="app-btn btn-verde">
+                Juventud TV
+            </a>
+
+            <a href="convocatorias.html" class="app-btn btn-magenta">
+                Convocatorias
+            </a>
+        </nav>
+
+        <!-- Banner de Frases (Mínimo 10 frases, cambia cada minuto) -->
         <section class="banner-container">
             <p id="banner-frase-texto" class="frase-banner" style="transition: opacity 0.5s ease;">
                 "Construirse a uno mismo es construir el mundo."
@@ -38,61 +70,8 @@
 
         <!-- Banner de Noticias Rotativas -->
         <section class="news-banner">
-            <!-- Recuerda colocar las imágenes 1.png a 10.png en la carpeta assets/banners/ -->
-            <img id="banner-noticias-img" src="assets/banners/1.png" alt="Noticias de Innovación">
+            <img id="banner-noticias-img" src="./assets/banners/1.png" alt="Noticias de Innovación">
         </section>
-
-        <!-- Cuadrícula de Accesos Principales -->
-        <nav class="button-grid">
-            <a href="modelo.html" class="app-btn btn-azul">
-                <div class="icon-wrapper">
-                    <img src="assets/icon-construye.png" alt="Icono Modelo Construye">
-                </div>
-                Modelo CONSTRUYE
-            </a>
-
-            <a href="blog.html" class="app-btn btn-verde">
-                <div class="icon-wrapper">
-                    <img src="assets/icon-blog.png" alt="Icono Blog">
-                </div>
-                Blog Comunitario
-            </a>
-
-            <a href="revista.html" class="app-btn btn-amarillo">
-                <div class="icon-wrapper">
-                    <img src="assets/icon-revista.png" alt="Icono Revista">
-                </div>
-                Revista Digital<br><small>(Próximamente)</small>
-            </a>
-
-            <a href="kiosko.html" class="app-btn btn-magenta">
-                <div class="icon-wrapper">
-                    <img src="assets/icon-kiosko.png" alt="Icono Kiosko">
-                </div>
-                Kiosko de Proyectos
-            </a>
-
-            <a href="capacitacion.html" class="app-btn btn-azul">
-                <div class="icon-wrapper">
-                    <img src="assets/icon-capacitacion.png" alt="Icono Capacitación">
-                </div>
-                Capacitación
-            </a>
-
-            <a href="juventudtv.html" class="app-btn btn-verde">
-                <div class="icon-wrapper">
-                    <img src="assets/icon-tv.png" alt="Icono Juventud TV">
-                </div>
-                Juventud TV
-            </a>
-
-            <a href="convocatorias.html" class="app-btn btn-magenta">
-                <div class="icon-wrapper">
-                    <img src="assets/icon-convocatorias.png" alt="Icono Convocatorias">
-                </div>
-                Convocatorias
-            </a>
-        </nav>
 
         <!-- Enlace Transversal Gemelo -->
         <a href="https://mago-del-caos.github.io/Agenda/novedades.html" class="ag-lucem-link">
@@ -100,26 +79,6 @@
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
     </main>
-
-    <!-- Barra de Navegación Inferior (Fija) -->
-    <nav class="app-nav">
-        <a href="index.html" class="nav-item active">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
-            Inicio
-        </a>
-        <a href="agenda.html" class="nav-item">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-            Agenda
-        </a>
-        <a href="herramientas.html" class="nav-item">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path></svg>
-            Herramientas
-        </a>
-        <a href="ajustes.html" class="nav-item">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
-            Ajustes
-        </a>
-    </nav>
 
     <!-- Script Principal -->
     <script src="app.js"></script>
