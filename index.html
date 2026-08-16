@@ -11,7 +11,7 @@
     <meta http-equiv="Expires" content="0">
 
     <!-- PWA Configuración -->
-    <meta name="theme-color" content="#032A60">
+    <meta name="theme-color" content="#00205B">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
@@ -20,15 +20,14 @@
 </head>
 <body>
 
-    <!-- Header / Banner Superior (Con la franja amarilla inferior idéntica a Ag Lucem) -->
+    <!-- Header / Banner Superior -->
     <header class="main-header">
-        <!-- Imagen en la raíz -->
-        <img src="DIE.PNG" alt="Departamento de Innovación Educativa" style="width: 100%; height: auto; min-height: 60px; max-height: 140px; object-fit: cover; object-position: center; display: block;">
+        <!-- Imagen en la raíz con proporciones naturales para que no se corte -->
+        <img src="DIE.PNG" alt="Departamento de Innovación Educativa" style="width: 100%; height: auto; display: block;">
     </header>
 
     <!-- Navegación Horizontal Deslizable (Estilo Píldora) -->
     <nav class="pill-nav">
-        <!-- El botón activo lleva el color oscuro -->
         <a href="index.html" class="pill-btn active">Inicio</a>
         <a href="modelo.html" class="pill-btn">Modelo CONSTRUYE</a>
         <a href="blog.html" class="pill-btn">Blog Comunitario</a>
@@ -40,13 +39,13 @@
     </nav>
 
     <main>
-        <!-- Banner de Frases (10 Frases Reales, cambia cada minuto) -->
+        <!-- Banner de Frases (20 Frases Reales controladas por app.js) -->
         <section class="banner-container">
             <p id="banner-frase-texto" class="frase-banner" style="transition: opacity 0.5s ease;">
-                "La imaginación es más importante que el conocimiento. El conocimiento es limitado, mientras que la imaginación no."
+                "La educación es el arma más poderosa que puedes usar para cambiar el mundo."
             </p>
             <p id="banner-frase-autor" class="autor-banner" style="transition: opacity 0.5s ease;">
-                Albert Einstein
+                Nelson Mandela
             </p>
         </section>
 
@@ -56,7 +55,7 @@
             <img id="banner-noticias-img" src="1.png" alt="Noticias de Innovación">
         </section>
 
-        <!-- Enlace Transversal Gemelo -->
+        <!-- Enlace Transversal Gemelo a Ag Lucem -->
         <a href="https://mago-del-caos.github.io/Agenda/novedades.html" class="ag-lucem-link">
             <span>Ingresar a Ag Lucem</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
