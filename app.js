@@ -52,7 +52,6 @@ const iniciarBanners = () => {
             }, 500);
         }, 60000); 
     }
-    // Nota de Araknia: Se eliminó la rotación de imágenes porque ahora se muestran las 3 juntas.
 };
 
 document.addEventListener('DOMContentLoaded', iniciarBanners);
