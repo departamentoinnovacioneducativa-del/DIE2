@@ -1,5 +1,6 @@
 /* ==========================================================================
-   SISTEMA BASE Y VARIABLES
+   PWA: Departamento de Innovación Educativa (DIE)
+   Archivo: style.css (Versión Completa y Unificada)
    ========================================================================== */
 :root {
   --fuente-app: system-ui, -apple-system, sans-serif;
@@ -28,63 +29,52 @@
 * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 body { font-family: var(--fuente-app); background-color: var(--bg-color); color: var(--text-color); padding-bottom: 40px; }
 
-/* ==========================================================================
-   COMPONENTES GLOBALES (Presentes en todas las páginas)
-   ========================================================================== */
-
-/* 1. Header Verde Vida */
+/* HEADER GLOBAL */
 .main-header { background-color: var(--verde-vida); border-bottom: 4px solid var(--ij-amarillo); position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 4px rgba(0,0,0,0.1); text-align: center; }
 .banner-img { width: 100%; max-width: 600px; max-height: 180px; object-fit: contain; margin: 0 auto; display: block; padding: 10px 0; transition: transform 0.2s ease; }
 .banner-img:active { transform: scale(0.98); }
 
-/* 2. Menú Píldora */
+/* NAVEGACIÓN PÍLDORA GLOBAL */
 .pill-nav { display: flex; overflow-x: auto; gap: 12px; padding: 15px 20px; background-color: var(--card-bg); -ms-overflow-style: none; scrollbar-width: none; border-bottom: 1px solid #E2E8F0; }
 .pill-nav::-webkit-scrollbar { display: none; }
 .pill-btn { white-space: nowrap; padding: 10px 22px; border-radius: 30px; border: 1px solid #CBD5E1; color: #475569; text-decoration: none; font-size: 0.9rem; font-weight: 600; background-color: transparent; transition: all 0.2s ease; }
 .pill-btn.active, .pill-btn:hover { background-color: var(--ij-azul-fuerte); color: #FFFFFF; border-color: var(--ij-azul-fuerte); box-shadow: 0 4px 8px rgba(0, 32, 91, 0.3); }
 
-/* 3. Enlace Final a Ag Lucem */
+/* ENLACES A AG LUCEM */
 .ag-lucem-link { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 40px auto; padding: 14px 28px; border-radius: 30px; color: var(--ij-azul-fuerte); border: 2px solid var(--ij-azul-fuerte); text-decoration: none; font-weight: 700; width: max-content; transition: 0.3s; }
 .ag-lucem-link:hover { background-color: var(--ij-azul-fuerte); color: white; }
 
-/* ==========================================================================
-   COMPONENTES ESPECÍFICOS: INICIO (index.html)
-   ========================================================================== */
+/* INICIO (INDEX) */
 .banner-container { background-color: var(--card-bg); border-radius: var(--radio-borde); margin: 20px; padding: 24px 20px; box-shadow: var(--sombra-suave); text-align: center; }
 .frase-banner { font-style: italic; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.5; transition: opacity 0.5s ease; }
 .autor-banner { font-weight: 700; color: var(--verde-vida); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.5s ease; }
-
 .news-gallery { display: flex; justify-content: center; align-items: center; gap: 10px; margin: 30px auto; padding: 0 15px; max-width: 100%; }
 .news-gallery img { flex: 0 1 30%; max-width: 110px; height: auto; object-fit: contain; border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.15); background-color: var(--card-bg); padding: 4px; border: 1px solid #E2E8F0; }
 
-/* ==========================================================================
-   COMPONENTES ESPECÍFICOS: MODELO CONSTRUYE (modelo.html)
-   ========================================================================== */
+/* MODELO CONSTRUYE */
 .construye-intro { text-align: center; padding: 30px 20px; background-color: var(--card-bg); border-radius: var(--radio-borde); margin: 20px; box-shadow: var(--sombra-suave); }
 .titulo-modelo { font-size: 2.2rem; color: var(--ij-azul-fuerte); letter-spacing: 2px; margin-bottom: 5px; }
 .subtitulo-modelo { font-size: 1.1rem; color: var(--verde-vida); margin-bottom: 15px; }
 .descripcion-modelo { font-size: 1rem; line-height: 1.6; color: var(--text-color); }
 
-.canva-section { margin: 20px; text-align: center; }
-.canva-wrapper { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--radio-borde); box-shadow: var(--sombra-suave); background-color: #E2E8F0; }
-.canva-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-.canva-btn { display: inline-block; margin-top: 15px; padding: 10px 20px; font-size: 0.9rem; font-weight: bold; color: var(--ij-azul-fuerte); border: 1px solid var(--ij-azul-fuerte); border-radius: 30px; text-decoration: none; transition: 0.3s; }
-.canva-btn:hover { background-color: var(--ij-azul-fuerte); color: #FFFFFF; }
+/* SECCIÓN DESCARGA PDF */
+.pdf-download-section { margin: 20px; text-align: center; }
+.download-card { background-color: var(--card-bg); padding: 30px; border-radius: var(--radio-borde); box-shadow: var(--sombra-suave); border: 2px dashed var(--verde-vida); }
+.download-card h3 { color: var(--ij-azul-fuerte); margin-bottom: 10px; }
+.download-card p { color: var(--text-color); margin-bottom: 20px; }
+.canva-btn { display: inline-block; padding: 12px 24px; font-size: 0.95rem; font-weight: bold; color: #FFFFFF; background-color: var(--verde-vida); border-radius: 30px; text-decoration: none; transition: 0.3s; }
+.canva-btn:hover { background-color: var(--ij-azul-fuerte); }
 
+/* FASES GRID */
 .fases-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin: 20px; }
 .fase-card { display: flex; background-color: var(--card-bg); border-radius: var(--radio-borde); padding: 20px; box-shadow: var(--sombra-suave); align-items: flex-start; gap: 15px; transition: transform 0.3s ease; }
 .fase-card:hover { transform: translateY(-5px); }
-
 .letra { font-size: 2.5rem; font-weight: 900; min-width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 12px; color: #FFFFFF; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
 .let-azul { background: var(--grad-azul); } .let-verde { background: var(--grad-verde); } .let-amarillo { background: var(--grad-amarillo); color: #1E293B; } .let-magenta { background: var(--grad-magenta); }
-
 .fase-info h3 { font-size: 1.2rem; color: var(--ij-azul-fuerte); margin-bottom: 8px; }
-.fase-info p { font-size: 0.9rem; line-height: 1.5; margin-bottom: 6px; color: var(--text-color); }
-.fase-info p strong { color: var(--verde-vida); }
+.fase-info p { font-size: 0.9rem; line-height: 1.5; color: var(--text-color); }
 
-/* ==========================================================================
-   ADAPTACIÓN A PC (RESPONSIVE)
-   ========================================================================== */
+/* ADAPTACIÓN A PC */
 @media (min-width: 768px) {
   main { max-width: 1000px; margin: 0 auto; }
   .pill-nav { justify-content: center; flex-wrap: wrap; overflow-x: visible; padding: 20px; }
