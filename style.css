@@ -1,171 +1,147 @@
 /* ==========================================================================
-   PWA: Departamento de Innovación Educativa (DIE)
+   DISEÑO EXCLUSIVO PARA: MODELO CONSTRUYE (modelo.html)
    ========================================================================== */
-:root {
-  --fuente-app: system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-  --ij-azul-fuerte: #00205B;
-  --ij-amarillo: #FFD100;
-  --verde-vida: #4CAF50;
-  --bg-color: #F8FAFC;
-  --text-color: #1E293B;
-  --card-bg: #FFFFFF;
-  --sombra-suave: 0 4px 10px rgba(0, 0, 0, 0.1);
-  --radio-borde: 16px;
-}
 
-[data-theme="dark"] {
-  --bg-color: #0F172A;
-  --text-color: #F8FAFC;
-  --card-bg: #1E293B;
-  --verde-vida: #2E7D32; 
-  --sombra-suave: 0 4px 10px rgba(0, 0, 0, 0.4);
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
-
-body {
-  font-family: var(--fuente-app);
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  padding-bottom: 40px;
-}
-
-/* ==========================================================================
-   HEADER
-   ========================================================================== */
-.main-header {
-  background-color: var(--verde-vida);
-  border-bottom: 4px solid var(--ij-amarillo);
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-  text-align: center; 
-}
-
-.banner-img {
-  width: 100%;
-  max-width: 600px; 
-  max-height: 180px;
-  object-fit: contain;
-  margin: 0 auto; 
-  display: block;
-  padding: 10px 0;
-}
-
-/* ==========================================================================
-   MENÚ PÍLDORA 
-   ========================================================================== */
-.pill-nav {
-  display: flex;
-  overflow-x: auto; 
-  gap: 12px;
-  padding: 15px 20px;
-  background-color: var(--card-bg);
-  -ms-overflow-style: none;  
-  scrollbar-width: none;  
-}
-
-.pill-nav::-webkit-scrollbar { display: none; }
-
-.pill-btn {
-  white-space: nowrap;
-  padding: 10px 22px;
-  border-radius: 30px;
-  border: 1px solid #CBD5E1;
-  color: #475569;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 600;
-  background-color: transparent;
-  transition: all 0.2s ease;
-}
-
-.pill-btn:hover, .pill-btn:active {
-  background-color: var(--ij-azul-fuerte);
-  color: #FFFFFF;
-  border-color: var(--ij-azul-fuerte);
-  box-shadow: 0 4px 8px rgba(0, 32, 91, 0.3);
-}
-
-/* ==========================================================================
-   BANNERS DE FRASES
-   ========================================================================== */
-.banner-container {
+/* Introducción */
+.construye-intro {
+  text-align: center;
+  padding: 30px 20px;
   background-color: var(--card-bg);
   border-radius: var(--radio-borde);
-  margin: 0 20px 20px 20px;
-  padding: 24px 20px;
+  margin: 20px;
   box-shadow: var(--sombra-suave);
+}
+
+.titulo-modelo {
+  font-size: 2.2rem;
+  color: var(--ij-azul-fuerte);
+  letter-spacing: 2px;
+  margin-bottom: 5px;
+}
+
+.subtitulo-modelo {
+  font-size: 1.1rem;
+  color: var(--verde-vida);
+  margin-bottom: 15px;
+}
+
+.subtitulo-modelo small {
+  font-weight: normal;
+  color: #64748B;
+}
+
+.descripcion-modelo {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-color);
+}
+
+/* Presentación Canva Incrustada */
+.canva-section {
+  margin: 20px;
   text-align: center;
 }
 
-.frase-banner { font-style: italic; font-size: 1.15rem; margin-bottom: 12px; line-height: 1.5; transition: opacity 0.5s ease; }
-.autor-banner { font-weight: 700; color: var(--verde-vida); font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; transition: opacity 0.5s ease; }
-
-/* ==========================================================================
-   GALERÍA DE NOVEDADES (3 EN LÍNEA, PEQUEÑAS)
-   ========================================================================== */
-.news-gallery {
-  display: flex;
-  justify-content: center; /* Centradas horizontalmente */
-  align-items: center;
-  gap: 10px; /* Separación pequeña entre imágenes */
-  margin: 30px auto;
-  padding: 0 15px;
-  max-width: 100%;
+.canva-wrapper {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* Ratio 16:9 nativo para presentaciones */
+  height: 0;
+  overflow: hidden;
+  border-radius: var(--radio-borde);
+  box-shadow: var(--sombra-suave);
+  background-color: #E2E8F0;
 }
 
-.news-gallery img {
-  flex: 0 1 30%; /* Cada imagen ocupa hasta el 30% del espacio disponible */
-  max-width: 110px; /* TAMAÑO TOPE EN CELULAR: Se ven pequeñas */
-  height: auto;
-  object-fit: contain; /* Garantiza que jamás se recorten */
-  border-radius: 12px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.15);
-  background-color: var(--card-bg);
-  padding: 4px; /* Crea un marco blanco tipo fotografía */
-  border: 1px solid #E2E8F0;
+.canva-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
 }
 
-/* Enlaces */
-.ag-lucem-link {
-  display: flex; align-items: center; justify-content: center; gap: 8px;
-  margin: 40px auto; padding: 14px 28px; border-radius: 30px;
-  color: var(--ij-azul-fuerte); border: 2px solid var(--ij-azul-fuerte);
-  text-decoration: none; font-weight: 700; width: max-content; transition: 0.3s;
+.canva-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--ij-azul-fuerte);
+  border: 1px solid var(--ij-azul-fuerte);
+  border-radius: 30px;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
-.ag-lucem-link:hover {
+.canva-btn:hover {
   background-color: var(--ij-azul-fuerte);
-  color: white;
+  color: #FFFFFF;
 }
 
-/* ==========================================================================
-   ADAPTACIÓN A PC
-   ========================================================================== */
+/* Grid de Fases (Tarjetas C-O-N-S-T-R-U-Y-E) */
+.fases-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin: 20px;
+}
+
 @media (min-width: 768px) {
-  main {
-    max-width: 1000px;
-    margin: 0 auto;
+  .fases-grid {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   }
+}
 
-  .pill-nav {
-    justify-content: center;
-    flex-wrap: wrap;
-    overflow-x: visible;
-    padding: 20px;
-  }
+.fase-card {
+  display: flex;
+  background-color: var(--card-bg);
+  border-radius: var(--radio-borde);
+  padding: 20px;
+  box-shadow: var(--sombra-suave);
+  align-items: flex-start;
+  gap: 15px;
+  transition: transform 0.3s ease;
+}
 
-  .banner-img {
-    max-height: 250px;
-  }
+.fase-card:hover {
+  transform: translateY(-5px);
+}
 
-  .news-gallery {
-    gap: 20px; /* Más espacio entre ellas en PC */
-  }
+/* Las Letras Gigantes */
+.letra {
+  font-size: 2.5rem;
+  font-weight: 900;
+  min-width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  color: #FFFFFF;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
 
-  .news-gallery img {
-    max-width: 180px; /* TAMAÑO TOPE EN PC: Mantienen un tamaño de miniatura elegante */
-  }
+/* Aplicando tus gradientes a las letras */
+.let-azul { background: var(--grad-azul); }
+.let-verde { background: var(--grad-verde); }
+.let-amarillo { background: var(--grad-amarillo); color: #1E293B; }
+.let-magenta { background: var(--grad-magenta); }
+
+.fase-info h3 {
+  font-size: 1.2rem;
+  color: var(--ij-azul-fuerte);
+  margin-bottom: 8px;
+}
+
+.fase-info p {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 6px;
+  color: var(--text-color);
+}
+
+.fase-info p strong {
+  color: var(--verde-vida);
 }
