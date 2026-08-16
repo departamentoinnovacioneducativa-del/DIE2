@@ -1,8 +1,39 @@
+/* ==========================================================================
+   PWA: Departamento de Innovación Educativa (DIE)
+   Motor Lógico Principal
+   ========================================================================== */
+
+// 1. Registro del Service Worker
 if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => { navigator.serviceWorker.register('sw.js').catch(err => console.error('DIE PWA error:', err)); });
+    window.addEventListener('load', () => { 
+        navigator.serviceWorker.register('./sw.js')
+            .catch(err => console.error('DIE PWA error:', err)); 
+    });
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+// 2. Sistema Inteligente de Navegación Activa
+const iluminarMenuActivo = () => {
+    // Obtenemos la ruta actual del navegador (ej. "modelo.html")
+    let rutaActual = window.location.pathname.split('/').pop();
+    
+    // Si la ruta está vacía, asumimos que es el index
+    if (rutaActual === '') rutaActual = 'index.html';
+
+    const botonesMenu = document.querySelectorAll('.pill-btn');
+    
+    botonesMenu.forEach(boton => {
+        // Quitamos la clase active por seguridad
+        boton.classList.remove('active');
+        
+        // Si el enlace del botón coincide con la página actual, lo encendemos
+        if (boton.getAttribute('href') === rutaActual) {
+            boton.classList.add('active');
+        }
+    });
+};
+
+// 3. Motor de 20 Frases Reales (Solo se ejecuta si existe el banner en la página)
+const iniciarBanners = () => {
     const frases = [
         { texto: "La educación es el arma más poderosa que puedes usar para cambiar el mundo.", autor: "Nelson Mandela" },
         { texto: "La imaginación es más importante que el conocimiento.", autor: "Albert Einstein" },
@@ -43,4 +74,10 @@ document.addEventListener('DOMContentLoaded', () => {
             }, 500);
         }, 60000); 
     }
+};
+
+// Ejecutar funciones al cargar la página
+document.addEventListener('DOMContentLoaded', () => {
+    iluminarMenuActivo();
+    iniciarBanners();
 });
