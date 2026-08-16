@@ -39,7 +39,6 @@ const iniciarBanners = () => {
     const txtAutor = document.getElementById('banner-frase-autor');
 
     if (txtFrase && txtAutor) {
-        // Rotación cada 60 segundos
         setInterval(() => {
             indiceFrase = (indiceFrase + 1) % frases.length;
             txtFrase.style.opacity = 0;
@@ -53,18 +52,7 @@ const iniciarBanners = () => {
             }, 500);
         }, 60000); 
     }
-
-    let indiceImagen = 1;
-    const imgNoticias = document.getElementById('banner-noticias-img');
-
-    if (imgNoticias) {
-        // Rotación de noticias cada 5 segundos
-        setInterval(() => {
-            indiceImagen++;
-            if (indiceImagen > 10) indiceImagen = 1;
-            imgNoticias.src = `${indiceImagen}.png`;
-        }, 5000); 
-    }
+    // Nota de Araknia: Se eliminó la rotación de imágenes porque ahora se muestran las 3 juntas.
 };
 
 document.addEventListener('DOMContentLoaded', iniciarBanners);
