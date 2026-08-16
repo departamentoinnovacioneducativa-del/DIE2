@@ -5,64 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Departamento de Innovación Educativa</title>
 
-    <!-- Metaetiquetas de Seguridad y Control de Caché Estricto -->
+    <!-- Metaetiquetas de Caché -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
 
-    <!-- PWA Configuración -->
     <meta name="theme-color" content="#00205B">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-    <!-- Hoja de Estilos -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <!-- Header / Banner Superior -->
     <header class="main-header">
-        <!-- Imagen en la raíz con proporciones naturales para que no se corte -->
-        <img src="DIE.PNG" alt="Departamento de Innovación Educativa" style="width: 100%; height: auto; display: block;">
+        <!-- object-fit: contain y max-height aseguran que la imagen jamás corte el resto de la app -->
+        <img src="DIE.PNG" alt="Departamento de Innovación Educativa" class="banner-img">
     </header>
 
-    <!-- Navegación Horizontal Deslizable (Estilo Píldora) -->
+    <!-- Navegación Estilo Píldora (Gemelo de Ag Lucem) -->
     <nav class="pill-nav">
-        <a href="index.html" class="pill-btn active">Inicio</a>
-        <a href="modelo.html" class="pill-btn">Modelo CONSTRUYE</a>
-        <a href="blog.html" class="pill-btn">Blog Comunitario</a>
-        <a href="revista.html" class="pill-btn">Revista Digital</a>
-        <a href="kiosko.html" class="pill-btn">Kiosko de Proyectos</a>
-        <a href="capacitacion.html" class="pill-btn">Capacitación</a>
-        <a href="juventudtv.html" class="pill-btn">Juventud TV</a>
-        <a href="convocatorias.html" class="pill-btn">Convocatorias</a>
+        <a href="index.html" class="pill-btn active">Novedades</a>
+        <a href="agenda.html" class="pill-btn">Agenda</a>
+        <a href="herramientas.html" class="pill-btn">Herramientas</a>
+        <a href="ajustes.html" class="pill-btn">Ajustes</a>
     </nav>
 
     <main>
-        <!-- Banner de Frases (20 Frases Reales controladas por app.js) -->
+        <!-- Cuadrícula de Accesos Principales (Sin iconos, con gradientes) -->
+        <nav class="button-grid">
+            <a href="modelo.html" class="app-btn btn-azul">Modelo CONSTRUYE</a>
+            <a href="blog.html" class="app-btn btn-verde">Blog Comunitario</a>
+            <a href="revista.html" class="app-btn btn-amarillo">Revista Digital</a>
+            <a href="kiosko.html" class="app-btn btn-magenta">Kiosko de Proyectos</a>
+            <a href="capacitacion.html" class="app-btn btn-azul">Capacitación</a>
+            <a href="juventudtv.html" class="app-btn btn-verde">Juventud TV</a>
+            <a href="convocatorias.html" class="app-btn btn-magenta">Convocatorias</a>
+        </nav>
+
+        <!-- Banner de Frases (20 Frases Reales) -->
         <section class="banner-container">
-            <p id="banner-frase-texto" class="frase-banner" style="transition: opacity 0.5s ease;">
+            <p id="banner-frase-texto" class="frase-banner">
                 "La educación es el arma más poderosa que puedes usar para cambiar el mundo."
             </p>
-            <p id="banner-frase-autor" class="autor-banner" style="transition: opacity 0.5s ease;">
+            <p id="banner-frase-autor" class="autor-banner">
                 Nelson Mandela
             </p>
         </section>
 
         <!-- Banner de Noticias Rotativas -->
         <section class="news-banner">
-            <!-- Imagen en la raíz -->
             <img id="banner-noticias-img" src="1.png" alt="Noticias de Innovación">
         </section>
 
-        <!-- Enlace Transversal Gemelo a Ag Lucem -->
+        <!-- Enlace a Ag Lucem -->
         <a href="https://mago-del-caos.github.io/Agenda/novedades.html" class="ag-lucem-link">
             <span>Ingresar a Ag Lucem</span>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
     </main>
 
-    <!-- Script Principal -->
     <script src="app.js"></script>
 </body>
 </html>
